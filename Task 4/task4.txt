@@ -1,0 +1,33 @@
+{% schema %}
+{
+  "name": "Image and Text",
+  "settings": [
+    {
+      "id": "imgpicker",
+      "type": "image_picker",
+      "label": "Image picker",
+      "default": "Picker"
+    },
+    {
+      "id": "headertext",
+      "type": "text",
+      "label": "Header text"
+    },
+    {
+      "id": "bodytext",
+      "type": "text",
+      "label": "Body text"
+    },
+    {
+      "id": "link",
+      "type": "url",
+      "label": "Button link"
+    },
+    {
+      "id": "linktext",
+      "type": "text",
+      "label": "Button text"
+    }
+  ]
+}
+{% endschema %}

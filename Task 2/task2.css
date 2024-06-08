@@ -1,0 +1,180 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.about-section {
+  text-align: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  width: 100%;
+}
+
+.about-header {
+  font-weight: bold;
+  font-size: 1.9em;
+}
+
+.about-main {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.about-footer {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 30;
+  position: relative;
+  text-decoration: underline;
+}
+
+.sections-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.section {
+  width: min-content;
+}
+
+.image-container {
+  position: relative; 
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  isolation: isolate;
+  width: 360px;
+  height: 360px;
+  /*border: 1px solid red;*/
+}
+
+.main-image {
+  border-radius: 50%;
+  /*width: 360px;
+  height: 360px;*/
+  width: 100%;
+  z-index: 4;
+}
+
+.graphic-imageTL {
+  /*border: 1px solid black;*/
+  background-image: url("graphic1-med.png");
+  position: absolute;
+  width: 267px;
+  height: 253px;
+  left: -36%;
+  top: -14%;
+  overflow: hidden;
+}
+
+.graphic-imageTR {
+  /*border: 1px solid black;*/
+  background-image: url("graphic2-med.png");
+  position: absolute;
+  width: 232px;
+  height: 188px;
+  right: -16%;
+  top: -12%;
+
+  z-index: 3;
+}
+
+.graphic-imageBL {
+  /*border: 1px solid black;*/
+  background-image: url("graphic3-med.png");
+  position: absolute;
+  width: 232px;
+  height: 188px;
+  left: -29%;
+  bottom: -15%;
+}
+
+.graphic-imageBR {
+  /*border: 1px solid black;*/
+  background-image: url("graphic4-med.png");
+  position: absolute;
+  width: 232px;
+  height: 188px;
+  right: -16%; /* -16%*/
+  bottom: -15%;
+}
+
+.text-field {
+  margin-top: 2vh;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+
+@media (max-width: 1024px) {
+  .about-header {
+    font-size: 1.5em;
+  }
+
+  .sections-container {
+    flex-direction: column;
+  }
+
+  .image-container {
+    width: 304px;
+    height: 304px;
+  }
+
+  .text-field {
+    margin-top: 1.5vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  .flex-item {
+    margin-bottom: 4vh;
+  }
+
+  .graphic-imageTL {
+    background-image: url("graphic1-small.png");
+    width: 135px;
+    height: 135px;
+    left: -14%;
+    top: -7%;
+  }
+
+  .graphic-imageTR {
+    background-image: url("graphic2-small.png");
+    width: 135px;
+    height: 135px;
+    right: -5%;
+    top: -8%;
+  }
+
+  .graphic-imageBL {
+    background-image: url("graphic3-small.png");
+    width: 135px;
+    height: 135px;
+    left: -13%;
+    bottom: -13%;
+  }
+
+  .graphic-imageBR {
+    background-image: url("graphic4-small.png");
+    width: 135px;
+    height: 135px;
+    right: -9%;
+    bottom: -12%;
+  }
+}
+
+

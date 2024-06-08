@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' type='text/css' href='task3.css'>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+
+  <body>
+
+    <div is="custom-element" class="container">
+
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide"><img src="image1-med.png" /></div>
+          <div class="swiper-slide"><img src="image2-med.png" /></div>
+          <div class="swiper-slide"><img src="image1-med.png" /></div>
+
+          <div class="swiper-slide"><img src="image1-med.png" /></div>
+          <div class="swiper-slide"><img src="image2-med.png" /></div>
+          <div class="swiper-slide"><img src="image1-med.png" /></div>
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+    </div>
+
+
+
+    <button class="toggler" data-swiper-destroyed="false">Toggle slider</button>
+
+    <script>
+
+      class CustomElement extends HTMLDivElement {
+        constructor () {
+          super();
+        }
+
+        connectedCallback() {          
+          const swiperOptions = {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 1.03,
+            spaceBetween: 6,
+
+            breakpoints: {
+              425: {
+                slidesPerView: 1.03,
+                spaceBetween: 6
+              },
+              768: {
+                slidesPerView: 1.4,
+                spaceBetween: 10
+              },
+              1024: {
+                slidesPerView: 2.03,
+                spaceBetween: 10
+              },
+              1440: {
+                slidesPerView: 3,
+                spaceBetween: 10
+              }
+
+            },
+
+            // Navigation arrows
+            /*
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }
+            */
+          };
+          var swiper = new Swiper('.swiper', swiperOptions);
+          swiper.on('realIndexChange', function () {
+            var currentSlide = document.getElementsByClassName("swiper-slide")[swiper.realIndex];
+            console.log(currentSlide);
+          });
+
+          var prevElement = document.querySelector(".swiper-button-prev");
+          var nextElement = document.querySelector(".swiper-button-next");
+
+          prevElement.addEventListener("click", function () {
+            swiper.slidePrev(600, true);
+          });
+          nextElement.addEventListener("click", function () {
+            swiper.slideNext(600, true);
+          });
+        
+        
+          let swiperContainer = document.querySelector(".container");
+          let toggler = document.querySelector(".toggler");
+
+          toggler.addEventListener("click", function (){
+            let isAlreadyDestroyed = toggler.getAttribute("data-swiper-destroyed");
+            if (isAlreadyDestroyed === "false") {
+              toggler.setAttribute("data-swiper-destroyed", true);
+              swiper.destroy(true, true);
+              swiperContainer.classList.add("hidden");
+            }
+            else if (isAlreadyDestroyed === "true") {
+              toggler.setAttribute("data-swiper-destroyed", false);
+              swiperContainer.classList.remove("hidden");
+
+              swiper = new Swiper('.swiper', swiperOptions);
+
+              swiper.on('realIndexChange', function () {
+              var currentSlide = document.getElementsByClassName("swiper-slide")[swiper.realIndex];
+                console.log(currentSlide);
+              });
+            }
+            else
+              return;
+
+          });
+        
+        
+        }
+      }
+
+      customElements.define("custom-element", CustomElement, { extends: "div" });
+
+
+
+    
+    </script>
+  </body>
+</html>

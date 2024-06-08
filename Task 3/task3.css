@@ -1,0 +1,55 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.swiper-button-prev::before {
+  content: url("arrowLsmall.png");
+}
+
+.swiper-button-next::before {
+  content: url("arrowRsmall.png");
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  display: none;
+}
+
+
+
+.container {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  padding-left: 2vw;
+  background-color: #F3EDE5;
+}
+
+.swiper {
+  width: 100%;
+  height: 65%;
+}
+
+.swiper-slide > img {
+  height: 100%;
+  width: 100%;
+} 
+
+@media (max-width: 400px) {
+  .container {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+  }
+
+  .swiper {
+    height: 50%;
+  }
+
+  .swiper-slide > img {
+    height: 428px;
+    width: 343px;
+  } 
+}
